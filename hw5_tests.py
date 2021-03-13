@@ -49,6 +49,7 @@ class TestCard(unittest.TestCase):
         '''
         c1 = hw5_cards.Card(0, 12)
         self.assertEqual(c1.rank_name, "Queen")
+        return c1.rank_name, "Queen"
 
     def test_q2(self):
         '''
@@ -64,6 +65,7 @@ class TestCard(unittest.TestCase):
         '''
         c1 = hw5_cards.Card(1, 1)
         self.assertEqual(c1.suit_name, "Clubs")
+        return c1.suit_name, "Clubs"
 
 
     def test_q3(self):
@@ -80,6 +82,7 @@ class TestCard(unittest.TestCase):
         '''
         c1 = hw5_cards.Card(3, 13)
         self.assertEqual(c1.__str__(), "King of Spades")
+        return c1.__str__(), "King of Spades"
 
     def test_q4(self):
         '''
@@ -95,6 +98,7 @@ class TestCard(unittest.TestCase):
         '''
         d1 = hw5_cards.Deck()
         self.assertEqual(len(d1.cards), 52)
+        return len(d1.cards), 52
 
     def test_q5(self):
         '''
@@ -110,6 +114,7 @@ class TestCard(unittest.TestCase):
         '''
         d1 = hw5_cards.Deck()
         self.assertIsInstance(d1.deal_card(), hw5_cards.Card)
+        return d1.deal_card(), hw5_cards.Card
 
     def test_q6(self):
         '''
@@ -128,6 +133,7 @@ class TestCard(unittest.TestCase):
         default_size = len(d1.cards)
         d1.deal_card()
         self.assertEqual(default_size - len(d1.cards), 1)
+        return len(d1.cards), 51
 
 
     def test_q7(self):
@@ -147,6 +153,7 @@ class TestCard(unittest.TestCase):
         pre_deck_size = len(d1.cards)
         d1.replace_card(card)
         self.assertEqual(len(d1.cards) - pre_deck_size, 1)
+        return pre_deck_size + 1, len(d1.cards), 52
 
 
     def test_q8(self):
@@ -162,11 +169,11 @@ class TestCard(unittest.TestCase):
 
         '''
         d1 = hw5_cards.Deck()
-        card = d1.deal_card(0) #hw5_cards.Card(0, 1)
         pre_deck_size = len(d1.cards)
-        c1 = hw5_cards.Card(3, 13)
+        c1 = hw5_cards.Card(0, 1)
         d1.replace_card(c1)
         self.assertEqual(len(d1.cards), pre_deck_size)
+        return len(d1.cards), pre_deck_size
 
 
 if __name__=="__main__":
